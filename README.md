@@ -1,3 +1,3 @@
-# TestOkur.Infrastructure
+# TestOkur.TestHelper
 
-Shared infrastructure code
+A small utility library for .netcore integration testing
