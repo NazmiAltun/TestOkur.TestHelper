@@ -10,7 +10,7 @@
         {
             var assembly = GetAssembly(startupType);
             var projectName = assembly.GetName().Name;
-            var applicationBasePath = GetAssemblyDirectory();
+            var applicationBasePath = GetAssemblyDirectory(assembly);
             var directoryInfo = new DirectoryInfo(applicationBasePath);
 
             do
