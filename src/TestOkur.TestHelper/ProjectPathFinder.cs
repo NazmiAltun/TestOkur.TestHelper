@@ -8,7 +8,8 @@
     {
         public static string GetPath(string projectRelativePath, Type startupType)
         {
-            var projectName = GetAssembly(startupType).GetName().Name;
+            var assembly = GetAssembly(startupType);
+            var projectName = assembly.GetName().Name;
             var applicationBasePath = GetAssemblyDirectory();
             var directoryInfo = new DirectoryInfo(applicationBasePath);
 
@@ -36,9 +37,9 @@
             throw new Exception($"Project root could not be located using the application root {applicationBasePath}.");
         }
 
-        private static string GetAssemblyDirectory()
+        private static string GetAssemblyDirectory(Assembly assembly)
         {
-            var codeBase = Assembly.GetEntryAssembly().CodeBase;
+            var codeBase = assembly.CodeBase;
             var uri = new UriBuilder(codeBase);
             var path = Uri.UnescapeDataString(uri.Path);
             return Path.GetDirectoryName(path);
