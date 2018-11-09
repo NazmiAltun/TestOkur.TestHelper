@@ -20,7 +20,7 @@
                 .AddEnvironmentVariables()
                 .Build();
 
-        public TestServer Create(Action<IServiceCollection> configureServices = null)
+        public virtual TestServer Create(Action<IServiceCollection> configureServices = null)
         {
             var webHostBuilder = CreateWebHostBuilder(null);
             webHostBuilder.UseEnvironment("Development");
