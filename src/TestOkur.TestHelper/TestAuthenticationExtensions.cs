@@ -7,14 +7,14 @@
     {
         public static AuthenticationBuilder AddTestAuth<TTestAuthenticationOptions>(
             this AuthenticationBuilder builder,
-            Action<TTestAuthenticationOptions> configureOptions)
+            Action<TTestAuthenticationOptions> configureOptions = null)
             where TTestAuthenticationOptions : TestAuthenticationOptions, new()
         {
             return builder
                 .AddScheme<TTestAuthenticationOptions, TestAuthenticationHandler<TTestAuthenticationOptions>>(
                 "Test Scheme",
                 "Test Auth",
-                configureOptions);
+                configureOptions ?? (o => { }));
         }
     }
 }

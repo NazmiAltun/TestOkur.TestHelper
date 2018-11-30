@@ -3,8 +3,8 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp2.1</TargetFramework>
     <CodeAnalysisRuleSet>..\..\StyleCopRules.ruleset</CodeAnalysisRuleSet>
-    <AssemblyVersion>1.0.10.0</AssemblyVersion>
-    <Version>1.0.10</Version>
+    <AssemblyVersion>1.0.11.0</AssemblyVersion>
+    <Version>1.0.11</Version>
     <Copyright>Nazmi Altun</Copyright>
     <PackageProjectUrl></PackageProjectUrl>
     <RepositoryUrl>https://github.com/NazmiAltun/TestOkur.TestHelper</RepositoryUrl>
