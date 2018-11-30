@@ -6,7 +6,7 @@
 
     public class TestAuthenticationOptions : AuthenticationSchemeOptions
     {
-        public virtual ClaimsIdentity Identity { get; } = new ClaimsIdentity(
+        public virtual ClaimsIdentity Identity { get; set; } = new ClaimsIdentity(
             new[]
             {
                 new Claim("http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier", Guid.NewGuid().ToString())
