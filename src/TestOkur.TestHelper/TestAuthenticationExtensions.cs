@@ -7,7 +7,7 @@
     {
         public static AuthenticationBuilder AddTestAuth<TTestAuthenticationOptions>(
             this AuthenticationBuilder builder,
-            Action<TestAuthenticationOptions> configureOptions)
+            Action<TTestAuthenticationOptions> configureOptions)
             where TTestAuthenticationOptions : TestAuthenticationOptions, new()
         {
             return builder
