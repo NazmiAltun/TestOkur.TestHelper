@@ -1,12 +1,12 @@
 ﻿namespace TestOkur.TestHelper
 {
-    using System;
-    using System.Reflection;
     using Microsoft.AspNetCore.Hosting;
     using Microsoft.AspNetCore.TestHost;
     using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.DependencyInjection;
     using Microsoft.Extensions.Logging;
+    using System;
+    using System.Reflection;
 
     public abstract class TestServerFactory<TStartup>
         where TStartup : class
@@ -26,7 +26,6 @@
             webHostBuilder.UseEnvironment("Development");
             webHostBuilder.UseConfiguration(Configuration);
             webHostBuilder.UseStartup<TStartup>();
-            webHostBuilder.UseHealthChecks("/hc");
 
             if (configureServices != null)
             {
