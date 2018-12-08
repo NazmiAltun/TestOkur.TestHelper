@@ -26,13 +26,10 @@
                 .FailWith("Message should not be null or empty")
                 .Then
                 .ForCondition(Subject.StatusCode == HttpStatusCode.BadRequest)
-                .FailWith("Expected 400 (BadRequest) but found {0}", Subject.StatusCode)
+                .FailWith($"Expected 400 (BadRequest) but found {Subject.StatusCode}")
                 .Then
                 .ForCondition(strContent.Contains(errorMessage))
-                .FailWith(
-                    "Expected error message '{0}' not found in {1}",
-                    errorMessage,
-                    strContent);
+                .FailWith($"Expected error message '{errorMessage}' not found in {strContent}");
 
             return new AndConstraint<HttpResponseMessageAssertions>(this);
         }

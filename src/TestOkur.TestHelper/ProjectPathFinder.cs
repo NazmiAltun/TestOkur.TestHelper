@@ -12,6 +12,7 @@
             var projectName = assembly.GetName().Name;
             var applicationBasePath = GetAssemblyDirectory(assembly);
             var directoryInfo = new DirectoryInfo(applicationBasePath);
+            string foundPath = null;
 
             do
             {
@@ -22,19 +23,27 @@
                     break;
                 }
 
-                var projectDirectoryInfo = new DirectoryInfo(Path.Combine(directoryInfo.FullName, projectRelativePath));
-                if (projectDirectoryInfo.Exists)
+                foundPath = GetProjectFilePath(projectName, directoryInfo, projectRelativePath);
+            }
+            while (directoryInfo.Parent != null && foundPath != null);
+
+            return foundPath ??
+                   throw new Exception($"Project root could not be located using the application root {applicationBasePath}.");
+        }
+
+        private static string GetProjectFilePath(string projectName, DirectoryInfo directoryInfo, string projectRelativePath)
+        {
+            var projectDirectoryInfo = new DirectoryInfo(Path.Combine(directoryInfo.FullName, projectRelativePath));
+            if (projectDirectoryInfo.Exists)
+            {
+                var projectFileInfo = new FileInfo(Path.Combine(projectDirectoryInfo.FullName, projectName, $"{projectName}.csproj"));
+                if (projectFileInfo.Exists)
                 {
-                    var projectFileInfo = new FileInfo(Path.Combine(projectDirectoryInfo.FullName, projectName, $"{projectName}.csproj"));
-                    if (projectFileInfo.Exists)
-                    {
-                        return Path.Combine(projectDirectoryInfo.FullName, projectName);
-                    }
+                    return Path.Combine(projectDirectoryInfo.FullName, projectName);
                 }
             }
-            while (directoryInfo.Parent != null);
 
-            throw new Exception($"Project root could not be located using the application root {applicationBasePath}.");
+            return null;
         }
 
         private static string GetAssemblyDirectory(Assembly assembly)
@@ -42,6 +51,7 @@
             var codeBase = assembly.CodeBase;
             var uri = new UriBuilder(codeBase);
             var path = Uri.UnescapeDataString(uri.Path);
+
             return Path.GetDirectoryName(path);
         }
 

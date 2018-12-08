@@ -13,17 +13,22 @@
             {
                 response.EnsureSuccessStatusCode();
 
-                using (var stream = new FileStream(
-                    newPath,
-                    FileMode.Create,
-                    FileAccess.Write,
-                    FileShare.None))
+                using (var stream = CreateStream(newPath))
                 {
                     await response.Content.CopyToAsync(stream);
                 }
             }
 
             return newPath;
+        }
+
+        private static FileStream CreateStream(string path)
+        {
+            return new FileStream(
+                path,
+                FileMode.Create,
+                FileAccess.Write,
+                FileShare.None);
         }
     }
 }
