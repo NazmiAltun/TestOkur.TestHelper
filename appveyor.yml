@@ -9,7 +9,6 @@ branches:
   - master
 image: 
  - Visual Studio 2017
- - Ubuntu
 configuration: Release
 clone_depth: 1
 nuget:
