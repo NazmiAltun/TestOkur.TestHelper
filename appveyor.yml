@@ -7,6 +7,10 @@ environment:
 branches:
   only:
   - master
+image: 
+ - Visual Studio 2017
+ - Ubuntu
+configuration: Release
 clone_depth: 1
 nuget:
   disable_publish_on_pr: true
@@ -25,3 +29,10 @@ deploy:
     secure: fEPibi05QGFadnQVP5zulZ51Xp5qXo1vj4FEGvWlVB2ds/IebcmjGzDIWIj4IYOf
   on:
     appveyor_repo_tag: true
+notifications:
+- provider: Email
+  to:
+  - nazmialtun@windowslive.com
+  on_build_success: false
+  on_build_failure: true
+  on_build_status_changed: false
