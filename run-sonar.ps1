@@ -4,14 +4,9 @@ $github = "NazmiAltun/TestOkur.TestHelper"
 $baseBranch = "master"
 $framework = "netcoreapp2.1"
 $sonarOrg = "nazmialtun-github"
-
+$sonarToken = "bb48ce419887374c832debe93ea0ee5b9d29914d"
 
 if ($env:APPVEYOR_REPO_NAME -eq $github) {
-
-    if (-not $env:sonar_token) {
-        Write-warning "Sonar: not running SonarQube, no sonar_token"
-        return;
-    }
  
     $prMode = $false;
     $branchMode = $false;
@@ -32,7 +27,6 @@ if ($env:APPVEYOR_REPO_NAME -eq $github) {
     choco install "msbuild-sonarqube-runner" -y
 
     $sonarUrl = "https://sonarcloud.io"
-    $sonarToken = $env:sonar_token
     $buildVersion = $env:APPVEYOR_BUILD_VERSION
 
     if ($prMode) {
@@ -52,7 +46,7 @@ if ($env:APPVEYOR_REPO_NAME -eq $github) {
 
     msbuild /t:Rebuild $projectFile /p:targetFrameworks=$framework /verbosity:minimal
 
-    SonarScanner.MSBuild.exe end /d:"sonar.login=$env:sonar_token"
+    SonarScanner.MSBuild.exe end /d:"sonar.login=$sonarToken"
 }
 else {
     Write-Output "Sonar: not running as we're on '$env:APPVEYOR_REPO_NAME'"

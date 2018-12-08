@@ -1,18 +1,15 @@
 version: '{build}'
-pull_requests:
-  do_not_increment_build_number: true
-
-environment:
-  DOTNET_SKIP_FIRST_TIME_EXPERIENCE: true
-  DOTNET_CLI_TELEMETRY_OPTOUT: true
-  sonar_token:
-    secure: bb48ce419887374c832debe93ea0ee5b9d29914d
-branches:
-  only:
-  - master
 image: 
  - Visual Studio 2017
 configuration: Release
+pull_requests:
+  do_not_increment_build_number: true
+environment:
+  DOTNET_SKIP_FIRST_TIME_EXPERIENCE: true
+  DOTNET_CLI_TELEMETRY_OPTOUT: true
+branches:
+  only:
+  - master
 clone_depth: 1
 nuget:
   disable_publish_on_pr: true
