@@ -19,7 +19,6 @@ test_script:
 - ps: .\run-sonar.ps1
 build_script:
 - ps: .\Build.ps1
-test: off
 artifacts:
 - path: .\artifacts\**\*.nupkg
   name: NuGet
