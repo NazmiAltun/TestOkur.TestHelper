@@ -16,13 +16,12 @@
 
             do
             {
-                directoryInfo = directoryInfo.Parent;
+                directoryInfo = directoryInfo?.Parent ?? throw new Exception($"Project root could not be located using the application root {applicationBasePath}.");
                 foundPath = GetProjectFilePath(projectName, directoryInfo, projectRelativePath);
             }
-            while (directoryInfo?.Parent != null && foundPath != null);
+            while (foundPath == null);
 
-            return foundPath ??
-                   throw new Exception($"Project root could not be located using the application root {applicationBasePath}.");
+            return foundPath;
         }
 
         private static string GetProjectFilePath(string projectName, DirectoryInfo directoryInfo, string projectRelativePath)
