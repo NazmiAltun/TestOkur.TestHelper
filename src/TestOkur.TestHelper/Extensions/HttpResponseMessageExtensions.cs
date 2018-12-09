@@ -3,7 +3,6 @@
     using System.Net.Http;
     using System.Text.RegularExpressions;
     using System.Threading.Tasks;
-    using FluentAssertions.Primitives;
 
     public static class HttpResponseMessageExtensions
     {

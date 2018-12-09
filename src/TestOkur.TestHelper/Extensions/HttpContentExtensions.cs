@@ -1,8 +1,9 @@
-﻿namespace System.Net.Http
+﻿namespace TestOkur.TestHelper.Extensions
 {
+    using System.Net.Http;
+    using System.Threading.Tasks;
     using Newtonsoft.Json;
     using Newtonsoft.Json.Serialization;
-    using Threading.Tasks;
 
     public static class HttpContentExtensions
     {

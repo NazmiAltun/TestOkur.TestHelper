@@ -1,7 +1,8 @@
-﻿namespace System.Net.Http
+﻿namespace TestOkur.TestHelper.Extensions
 {
-    using IO;
-    using Threading.Tasks;
+    using System.IO;
+    using System.Net.Http;
+    using System.Threading.Tasks;
 
     public static class HttpClientExtensions
     {

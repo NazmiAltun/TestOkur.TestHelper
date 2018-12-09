@@ -1,10 +1,11 @@
-﻿namespace FluentAssertions.Primitives
+﻿namespace TestOkur.TestHelper
 {
     using System.Net;
     using System.Net.Http;
     using System.Threading.Tasks;
-    using Execution;
     using FluentAssertions;
+    using FluentAssertions.Execution;
+    using FluentAssertions.Primitives;
 
     public class HttpResponseMessageAssertions
         : ReferenceTypeAssertions<HttpResponseMessage, HttpResponseMessageAssertions>

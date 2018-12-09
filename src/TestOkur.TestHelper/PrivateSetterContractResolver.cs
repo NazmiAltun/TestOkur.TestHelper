@@ -1,7 +1,8 @@
-﻿namespace Newtonsoft.Json.Serialization
+﻿namespace TestOkur.TestHelper
 {
-    using Newtonsoft.Json;
     using System.Reflection;
+    using Newtonsoft.Json;
+    using Newtonsoft.Json.Serialization;
 
 #pragma warning disable SA1402, SA1649
 
