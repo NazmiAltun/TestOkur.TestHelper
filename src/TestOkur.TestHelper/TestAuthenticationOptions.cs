@@ -5,6 +5,6 @@
 
     public class TestAuthenticationOptions : AuthenticationSchemeOptions
     {
-        public virtual ClaimsIdentity Identity { get; }
+        public virtual ClaimsIdentity Identity { get; set; }
     }
 }
