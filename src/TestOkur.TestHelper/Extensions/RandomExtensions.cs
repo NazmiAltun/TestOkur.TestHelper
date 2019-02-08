@@ -7,9 +7,12 @@
 	{
 		public static string RandomString(this Random random, int length)
 		{
-			const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+			return RandomString(random, length, "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789");
+		}
 
-			return new string(Enumerable.Repeat(chars, length)
+		public static string RandomString(this Random random, int length, string charSet)
+		{
+			return new string(Enumerable.Repeat(charSet, length)
 				.Select(s => s[random.Next(s.Length)]).ToArray());
 		}
 	}
