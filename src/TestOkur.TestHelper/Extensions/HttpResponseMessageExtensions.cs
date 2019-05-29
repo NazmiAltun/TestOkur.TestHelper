@@ -24,7 +24,7 @@
             this HttpResponseMessage response,
             Dictionary<string, string> formPostBodyData)
         {
-            var path = response.RequestMessage.RequestUri.AbsolutePath;
+            var path = response.RequestMessage.RequestUri.PathAndQuery;
             var httpRequestMessage = new HttpRequestMessage(HttpMethod.Post, path)
             {
                 Content = new FormUrlEncodedContent(formPostBodyData.ToList())
