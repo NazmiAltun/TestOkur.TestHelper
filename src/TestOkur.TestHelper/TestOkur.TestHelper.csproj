@@ -6,6 +6,7 @@
     <AssemblyVersion>1.0.28.0</AssemblyVersion>
     <Version>1.0.28</Version>
     <Copyright>Nazmi Altun</Copyright>
+    <LangVersion>latest</LangVersion>
     <PackageProjectUrl></PackageProjectUrl>
     <RepositoryUrl>https://github.com/NazmiAltun/TestOkur.TestHelper</RepositoryUrl>
 	<ProjectGuid>{889A0717-FC38-4FCB-8780-7A2E1BA88157}</ProjectGuid>
