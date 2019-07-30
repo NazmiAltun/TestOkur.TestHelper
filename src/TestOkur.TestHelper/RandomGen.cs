@@ -23,5 +23,7 @@
 		public static int Next() => _local.Value.Next();
 
 		public static string String(int len) => _local.Value.RandomString(len);
+
+		public static string Phone() => $"5{_local.Value.RandomString(9, "0123456789")}";
 	}
 }

@@ -11,5 +11,12 @@ namespace UnitTests
 		{
 			RandomGen.String(10).Should().HaveLength(10);
 		}
+
+		[Fact]
+		public void Phone_Should_GenerateAValidPhone()
+		{
+			RandomGen.Phone().Should().HaveLength(10)
+				.And.Subject.Should().StartWith("5");
+		}
 	}
 }
