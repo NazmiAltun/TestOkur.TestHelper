@@ -46,9 +46,6 @@
                 {
                     var env = hostingContext.HostingEnvironment;
 
-                    config.AddJsonFile("appsettings.json", optional: false, reloadOnChange: false);
-                    config.AddJsonFile("appsettings.Development.json", optional: true, reloadOnChange: false);
-
                     if (env.IsDevelopment())
                     {
                         var appAssembly = Assembly.Load(new AssemblyName(env.ApplicationName));
