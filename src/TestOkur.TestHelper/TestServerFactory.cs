@@ -16,8 +16,8 @@
 
         private static readonly IConfigurationRoot Configuration = new ConfigurationBuilder()
                 .SetBasePath(ContentRoot)
-                .AddJsonFile("appsettings.json", false, false)
-                .AddJsonFile("appsettings.Development.json", true, false)
+                .AddJsonFile("appsettings.json", true, true)
+                .AddJsonFile("appsettings.Development.json", true, true)
                 .AddEnvironmentVariables()
                 .Build();
 
